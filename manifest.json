@@ -1,19 +1,23 @@
 {
-  "name": "backend-course",
-  "vendor": "vtex",
-  "version": "0.0.2",
-  "title": "Backend Course",
-  "description": "Reference app for the Backend Course",
+  "name": "organizations",
+  "vendor": "friopecasb2b",
+  "version": "0.0.1",
+  "title": "Friopeças - Organizações",
+  "description": "Manipula organizações referentes ao B2B suíte",
   "builders": {
     "node": "6.x"
   },
   "scripts": {
     "prereleasy": "bash lint.sh"
   },
-  "credentialType": "absolute",
-  "policies": [],
   "dependencies": {
-    "vtex.events-example": "0.x"
+    "vtex.b2b-organizations-graphql": "2.x"
   },
+  "credentialType": "absolute",
+  "policies": [
+    {
+      "name": "vtex.b2b-organizations-graphql:resolve-graphql"
+    }
+  ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

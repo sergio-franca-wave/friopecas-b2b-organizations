@@ -6,8 +6,8 @@
   "maxReplicas": 10,
   "workers": 4,
   "routes": {
-    "analytics": {
-      "path": "/_v/app/analytics/realTime",
+    "organizations": {
+      "path": "/_v/api/organizations",
       "public": true
     }
   }

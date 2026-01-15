@@ -5,17 +5,16 @@ import {
   ParamsContext,
   RecorderState,
   method,
-} from '@vtex/api'
-import { Clients } from './clients'
-import { analytics } from './handlers/analytics'
+} from '@vtex/api';
+import { Clients } from './clients';
 
-// Create a LRU memory cache for the Status client.
-// The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
-const memoryCache = new LRUCache<string, any>({ max: 5000 })
-metrics.trackCache('status', memoryCache)
+import { addNewOrganizationWithId } from './middlewares/organizations';
+
+const memoryCache = new LRUCache<string, any>({ max: 5000 });
+metrics.trackCache('status', memoryCache);
 
 declare global {
-  type Context = ServiceContext<Clients, State>
+  type Context = ServiceContext<Clients, State>;
 
   interface State extends RecorderState {
     code: number
@@ -33,8 +32,8 @@ export default new Service<Clients, State, ParamsContext>({
     },
   },
   routes: {
-    analytics: method({
-      GET: [analytics],
+    organizations: method({
+      POST: [addNewOrganizationWithId],
     }),
-  },
-})
+  }
+});
