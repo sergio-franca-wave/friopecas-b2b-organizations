@@ -8,7 +8,9 @@ import {
 } from '@vtex/api';
 import { Clients } from './clients';
 
-import { addNewOrganizationWithId } from './middlewares/organizations';
+import { createOrganization } from './middlewares/createOrganization';
+import { updateOrganization } from './middlewares/updateOrganization';
+import { checkOrganization } from './middlewares/checkOrganization';
 
 const memoryCache = new LRUCache<string, any>({ max: 5000 });
 metrics.trackCache('status', memoryCache);
@@ -32,8 +34,14 @@ export default new Service<Clients, State, ParamsContext>({
     },
   },
   routes: {
-    organizations: method({
-      POST: [addNewOrganizationWithId],
+    createOrganization: method({
+      POST: [createOrganization],
     }),
-  }
+    updateOrganization: method({
+      PUT: [updateOrganization],
+    }),
+    checkOrganization: method({
+      POST: [checkOrganization],
+    }),
+  },
 });

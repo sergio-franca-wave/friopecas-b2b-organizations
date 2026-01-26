@@ -1,13 +1,21 @@
 {
-  "memory": 128,
-  "ttl": 10,
-  "timeout": 10,
+  "memory": 256,
+  "ttl": 30,
+  "timeout": 60,
   "minReplicas": 2,
   "maxReplicas": 10,
   "workers": 4,
   "routes": {
-    "organizations": {
-      "path": "/_v/api/organizations",
+    "createOrganization": {
+      "path": "/_v/api/createOrganization",
+      "public": true
+    },
+    "updateOrganization": {
+      "path": "/_v/api/updateOrganization",
+      "public": true
+    },
+    "checkOrganization": {
+      "path": "/_v/api/checkOrganization",
       "public": true
     }
   }

@@ -1,7 +1,7 @@
 {
   "name": "organizations",
   "vendor": "friopecasb2b",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "title": "Friopeças - Organizações",
   "description": "Manipula organizações referentes ao B2B suíte",
   "builders": {
@@ -11,12 +11,144 @@
     "prereleasy": "bash lint.sh"
   },
   "dependencies": {
+    "vtex.storefront-permissions": "3.x",
     "vtex.b2b-organizations-graphql": "2.x"
   },
   "credentialType": "absolute",
   "policies": [
     {
+      "name": "vbase-read-write"
+    },
+    {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "ListOrders"
+    },
+    {
+      "name": "read-workspace-apps"
+    },
+    {
+      "name": "read-write-apps-settings"
+    },
+    {
+      "name": "update-app-settings"
+    },
+    {
+      "name": "SaveOrderFormConfiguration"
+    },
+    {
+      "name": "POWER_USER_DS"
+    },
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "vtex.storefront-permissions:resolve-graphql"
+    },
+    {
       "name": "vtex.b2b-organizations-graphql:resolve-graphql"
+    },
+    {
+      "name": "Get_User_By_Identifier"
+    },
+    {
+      "name": "template-criar"
+    },
+    {
+      "name": "template-editar"
+    },
+    {
+      "name": "send-message"
+    },
+    {
+      "name": "buyer_organization_view"
+    },
+    {
+      "name": "buyer_organization_edit"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/checkout/pub/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.vtex.com",
+        "path": "/api/dataentities/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/checkout/pvt/configuration/orderForm"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/oms/pvt/admin/orders/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/scheduler/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/scheduler/master/vtex.gmc-keep-alive"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/dataentities/cart/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{workspace}}--{{account}}.myvtex.com",
+        "path": "/b2b-quotes-graphql/_v/0/  *"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "rc.vtex.com",
+        "path": "/api/analytics/schemaless-events"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "vtexid.vtex.com.br",
+        "path": "/api/vtexid/pub/authenticated/user"
+      }
+    },
+    {
+      "name": "SaveOrderFormConfiguration"
+    },
+    {
+      "name": "AcessaTodosCarrinhos"
     }
   ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
